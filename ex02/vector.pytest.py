@@ -81,6 +81,20 @@ class Vector():
                 "to another vector of the same size")
         return self
 
+    def __radd__(self, other):
+        if not isinstance(other, Vector):
+            raise TypeError("a Vector can only be added to another Vector")
+        if len(self.values) == len(other.values):
+            i = 0
+            while i < len(self.values):
+                other.values[i] += self.values[i]
+                i += 1
+        else:
+            raise ValueError(
+                "a Vector can only be added" +
+                "to another vector of the same size")
+        return self
+
     def __sub__(self, other):
         if not isinstance(other, Vector):
             raise TypeError("a Vector can only be added to another Vector")
